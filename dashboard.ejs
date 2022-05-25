@@ -1,0 +1,57 @@
+<%- include('header') -%>
+
+<h1>Dashboard</h1>
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-xl-4">
+        <a class="d-flex flex-column align-items-end justify-content-between p-3 block" href="">
+            <canvas id="grafico"></canvas> 
+          <!--<div class="label">Label</div>
+          <div class="description">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>-->
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-xl-8">
+        <a class="d-flex flex-column align-items-end justify-content-between p-3 block" href="">
+          <div class="label">Label</div>
+          <div class="description">Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</div>
+        </a>
+      </div>
+      <div class="col-12 col-xl-4">
+        <a class="d-flex flex-column align-items-end justify-content-between p-3 block" href="">
+          <div class="label">Label</div>
+          <div class="description">The several languages coalesce.</div>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4">
+        <a class="d-flex flex-column align-items-end justify-content-between p-3 block" href="">
+          <div class="label">Label</div>
+          <div class="description">Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</div>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4">
+        <a class="d-flex flex-column align-items-end justify-content-between p-3 block" href="">
+          <div class="label">Label</div>
+          <div class="description">The new common language will be more simple and regular than the existing European languages.</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<script>
+    var ctx = document.getElementById("grafico").getContext("2d"); 
+    var miGrafico = new Chart(ctx,{
+    type:"bar", 
+    data:{
+        labels:['col1','col2', 'col3'], 
+        datasets:[{
+            label:'num datos',
+            data:[10,9,15]
+        }]
+    }
+});
+</script>
+
+<%- include('footer') -%>

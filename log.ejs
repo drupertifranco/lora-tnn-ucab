@@ -1,0 +1,87 @@
+<%- include('header') -%>
+<br>
+<h1>Data</h1>
+<br>
+<section class="d-flex text-center">
+    <div class="container d-flex justify-content-center">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-30">
+                <div class="table-responsive-sm" id="impresion">
+                    <table id="datatable" class="table table-hover display">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Dispositivo</th>
+                                <th>Voltaje Panel</th>
+                                <th>Corriente</th>
+                                <th>Potencia</th>
+                                <th>% de Bateria</th>
+                                <th>Tiempo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (const Device of modelo){ %>
+                                <tr>
+                                    <td><%= Device.Producto_ID %></td>
+                                    <td><%= Device.Nombre %></td>
+                                    <td><%= Device.Panel %></td>
+                                    <td><%= Device.Corriente %></td>
+                                    <td><%= Device.Potencia %></td>
+                                    <td><%= Device.Bateria %></td>
+                                    <td><%= Device.FOTORESITENCIA %></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <br>
+                    <button type="button" class="btn btn-info"><a href="javascript:imprSelec('impresion')" class="btn btn-sn btn-sucess">Nuevo Reporte</a></button>
+                    <button type="button" class="btn btn-danger"><a href="javascript:imprSelec('impresion')" class="btn btn-sn btn-sucess">Limpiar Data</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br>
+
+
+<script>
+    const reload = document.getElementById('datatable');
+    reload.addEventListener('click', _ => { // el _ es para indicar la ausencia de parametros
+    location.reload();
+    console.log('reload table');
+    });
+</script>
+<!--
+<div class="table-responsive-sm" id="impresion">
+    <table id="datatable" class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Dispositivo</th>
+                <th>Voltaje Panel</th>
+                <th>Corriente</th>
+                <th>Potencia</th>
+                <th>% de Bateria</th>
+                <th>Tiempo</th>
+                <th class="d-print-none"><a href="javascript:imprSelec('impresion')" class="btn btn-sn btn-sucess">Nuevo Reporte</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const Device of modelo){ %>
+                <tr>
+                    <td><%= Device.Producto_ID %></td>
+                    <td><%= Device.Nombre %></td>
+                    <td><%= Device.Panel %></td>
+                    <td><%= Device.Corriente %></td>
+                    <td><%= Device.Potencia %></td>
+                    <td><%= Device.Bateria %></td>
+                    <td><%= Device.FOTORESITENCIA %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+-->
+
+<%- include('footer') -%>
